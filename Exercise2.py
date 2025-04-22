@@ -1,5 +1,5 @@
-#This function checks if a string is a palindrome
-def is_palindrome(cad):
+#Esta función verifica si una cadena es palíndromo
+def es_palindromo(cad):
     if(len(cad) == 0):
         return False
     for i in range(len(cad)//2):
@@ -7,6 +7,6 @@ def is_palindrome(cad):
             return False
     return True
 
-character:str = input("Enter a character string: ")
+cadena:str = input("Ingrese su cadena de caracteres: ")
 
-print(f"Is it palindrome?: {is_palindrome(character)}")
+print(f"Es palíndromo?: {es_palindromo(cadena)}")
