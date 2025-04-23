@@ -1,5 +1,5 @@
-#This function checks if two strings have the same characters
-def same_characters(string1, string2):
+#Esta función verifica si dos cadenas tienen los mismos caracteres
+def mismos_caracteres(string1, string2):
     if(len(string1)!=len(string2)):
         return False
     cop1 = list(string1)
@@ -11,22 +11,22 @@ def same_characters(string1, string2):
             return False
     return True
 
-#This function forms groups of strings with the same characters into a list
-def groups_same_characters(lis):
+#Esta función forma grupos de cadenas con los mismos caracteres en una lista
+def grupos_mismos_caracteres(lis):
     s = lis.copy()
-    new_list = []
+    nueva_lista = []
     while(len(s)!=0):
-        group = [s[0]]
+        grupo = [s[0]]
         for i in range(1,len(s)):
-            if(same_characters(s[0], s[i])):
-                group.append(s[i])
-        new_list.append(group)
-        for i in group:
+            if(mismos_caracteres(s[0], s[i])):
+                grupo.append(s[i])
+        nueva_lista.append(grupo)
+        for i in grupo:
             s.remove(i)
-    return new_list
+    return nueva_lista
 
-#This function removes sublists from a list that contain only one element
-def keep_groups(lis):
+#Esta función elimina sublistas de una lista que contienen solo un elemento
+def mantener_grupos(lis):
     t = len(lis)
     i = 0
     while(i < t):
@@ -37,7 +37,7 @@ def keep_groups(lis):
             i += 1
     return lis 
 
-list_strings = ["roma", "amor", "perro", "uno", "onu", "nou", "sol", "los"]
-formed_groups = keep_groups(groups_same_characters(list_strings))
-for i in range(len(formed_groups)):
-    print(formed_groups[i])
+lista_cadenas = ["roma", "amor", "perro", "uno", "onu", "nou", "sol", "los"]
+grupos_formados = mantener_grupos(grupos_mismos_caracteres(lista_cadenas))
+for i in range(len(grupos_formados)):
+    print(grupos_formados[i])
