@@ -1,8 +1,8 @@
 import random
 
-#This function compares the sums of consecutive two numbers
-#This function returns the largest sum
-def greatest_sum_consecutive(lis):
+#Esta función compara la sumas de dos números consecutivos
+#Retorna la suma más grande
+def mayor_suma_consecutiva(lis):
     if(len(lis)<=1):
         return 0
     s = lis[0]+lis[1]
@@ -11,15 +11,23 @@ def greatest_sum_consecutive(lis):
             s = lis[i]+lis[i+1]
     return s
 
-#This function generates a list of n random numbers
-def generator_lists_numbers(n):
+#Esta función genera una lista de números aleatorios
+def generador_lista_numeros(n):
   m = []
   for i in range(n):
     m.append(random.randint(-1000,1000))
   return m
 
-array_size:int = int(input("Enter the number of elements in the list: ")) 
-list_numbers = generator_lists_numbers(array_size)
+#Esta función se asegura de que un número sea mayor a otro
+def es_mayor(n,m,tex):
+  while(n<=m):
+    n = int(input(tex))
+  return n
 
-print(f"list: {list_numbers}")
-print(f"The greatest sum is: {greatest_sum_consecutive(list_numbers)}")
+tamano:int = int(input("Ingrese el número de elementos de la lista: "))
+tamano:int = es_mayor(tamano,1,"Error. Ingrese un número mayor a 1: ")
+
+lista_numeros = generador_lista_numeros(tamano)
+
+print(f"lista: {lista_numeros}")
+print(f"La suma más grande es: {mayor_suma_consecutiva(lista_numeros)}")
